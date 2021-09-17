@@ -10,7 +10,7 @@ training datasets, actual datasets have no labels or outputs. To use OSBM, we mu
 is OSBM's job to provide best matching option(s) or label(s) to the actual dataset based on the training datasets and their labels(outputs). How does this mechanism works?
 
 ### **Here is a excel implemented version of OSBM:** ###
-![OSBM Excel implemented version](https://raw.githubusercontent.com/nirmalpaul383/OSBM/main/OSBM%20implemented%20in%20excel.jpg)
+![OSBM Excel implemented version](OSBM%20implemented%20in%20excel.jpg)
 
 .................................................................................................................................................................................
 

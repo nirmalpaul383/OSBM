@@ -195,7 +195,7 @@ console.log(colorDarkness.compare(RGB_Traning, RGB_Actual))
 ```
 .................................................................................................................................................................................
 
-In addition to these examples, it can be used in many other ways
+**In addition to these examples, it can be used in many other ways**
 
 If you like this project please give a star to these projects. https://github.com/nirmalpaul383/OSBM
 

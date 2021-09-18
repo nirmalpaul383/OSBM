@@ -1,5 +1,5 @@
 # OSBM.js
-an option selector mechanism to select the best option against actual(unlabeled) dataset based on the previous training(Labeled) datasets.
+an option selector mechanism to select the best option against actual(unlabeled) dataset based on the previous training(Labeled) datasets ,written in pure/vanilla JavaScript.
 
 .................................................................................................................................................................................
 

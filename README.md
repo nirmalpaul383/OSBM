@@ -3,12 +3,13 @@ an option selector mechanism to select the best option against actual(unlabeled)
 
 .................................................................................................................................................................................
 
-This is **OSBM** - **O**ption **S**elector **B**ased on the **B**est **M**atching. As the name suggests it is an option selector mechanism. **In which one or more options have to be provided as training
+This is **OSBM** - **O**ption **S**elector based on the **B**est **M**atching. As the name suggests it is an option selector mechanism. **In which one or more options have to be provided as training
 dataset** and later **if we provide actual dataset** in it, **it will** help to **select the best option based on the previous training dataset**. Its datasets(input) is mainly a numerical
 array (2d or 1d).  If this dataset is to be a training dataset, then this dataset must have a label, and we will consider this label as an option or output of the dataset.Unlike
 training datasets, actual datasets have no labels or outputs. To use OSBM, we must first provide one or more training dataset(s) and then the actual dataset. And from there it
-is OSBM's job to provide best matching option(s) or label(s) to the actual dataset based on the training datasets and their labels(outputs). How does this mechanism works?
+is OSBM's job to provide best matching option(s) or label(s) to the actual dataset based on the training datasets and their labels(outputs).
 
+## **How does this mechanism works?** ##
 ### **Here is a excel implemented version of OSBM:** ###
 ![OSBM Excel implemented version](OSBM%20implemented%20in%20excel.jpg)
 

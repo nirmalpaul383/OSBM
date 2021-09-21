@@ -22,30 +22,32 @@ matching percentage with respect to actual input. wrtOptions: means matching per
 
 ## How to use this library? ##
 You must first link OSBM.js to your project, you can do that by using two ways:
-(1) you can either download/clone it and then use 'OSBM.js' file
-(2) or you can use it directly using `https://cdn.jsdelivr.net/gh/nirmalpaul383/OSBM/OSBM.js`
-For using it in browser/webpage you can use ``` <script src="https://cdn.jsdelivr.net/gh/nirmalpaul383/OSBM/OSBM.js"></script> ```
+* (1) you can either download/clone it and then use 'OSBM.js' file
+* (2) or you can use it directly using **`https://cdn.jsdelivr.net/gh/nirmalpaul383/OSBM/OSBM.js`**
+  For using it in browser/webpage you can use **``` <script src="https://cdn.jsdelivr.net/gh/nirmalpaul383/OSBM/OSBM.js"></script> ```**
 
 Then you need to create a OSBM object usiing ` new OSBM ` keywords:
 ```JavaScript
-let myApp = new OSBM;
+let myApp = new OSBM();
 ```
-After that store the traning dataset in this format:
+After that store the traning dataSet(in this specific format) to the created OSBM object using ".train()" method:
 ```javascript
-let sampleTraningDatasets = [
-  {
-    dataset: [[]], // First Option 's input/datasets (Numerical Array)
-    output: "" // Label/Output(String) against the datasets
-  }, // First Option Object
+myApp.train(
+  [
+    {
+      dataSet: [[]], // First Option 's input/dataSets (Numerical Array)
+      output: "" // Label/Output(String) against the dataSets
+    }, // First Option Object
 
-  {
-    dataset: [[]], // Second Option 's input/datasets (Numerical Array)
-    output: "" // Label/Output(String) against the datasets
-  }, // Second Option Object
+    {
+      dataSet: [[]], // Second Option 's input/dataSets (Numerical Array)
+      output: "" // Label/Output(String) against the dataSets
+    }, // Second Option Object
 
-  // ...And so on ...
+    // ...And so on ...
 
-]; // Main traning Array
+  ] // Main traning Array
+);
 
 ```
 Similarly actual datasets are also need to be stored in this format:
@@ -54,7 +56,7 @@ let sampleActualDataset = [[]]; // Actual input/datasets (Numerical Array)
 ```
 To returns the result you can can use
 ```JavaScript
-myApp.compare(sampleTraningDatasets , sampleActualDataset);
+myApp.run(sampleActualDataset);
 ```
 method of the created OSBM object.
 
@@ -67,10 +69,10 @@ method of the created OSBM object.
 // Using it for pattern recognition:
 
 // Creating a new OSBM object
-let myPatternRecognizer = new OSBM;
+let myPatternRecognizer = new OSBM();
 
-// Storing traning dataset in specific format
-let patternTraning = [
+// Storing traning dataset in specific format with the ".train()" method
+myPatternRecognizer.train([
 
   //Option 1
   {
@@ -102,7 +104,7 @@ let patternTraning = [
     ],
     output: "Option3"
   },
-] ;
+]) ;
 
 // Storing actual dataset
 let patternActual = [
@@ -113,7 +115,7 @@ let patternActual = [
 ];
 
 // Output the result in the console
-console.log(myPatternRecognizer.compare(patternTraning, patternActual))
+console.log(myPatternRecognizer.run(patternActual))
 // Returns wrtOption: Option1=37.50%, Option2=27.50%, Option3=35%
 //(Suggests that out of all the options, Option 1 matches the most, followed by Option 3 and finally Option 2.)
 
@@ -128,8 +130,8 @@ console.log(myPatternRecognizer.compare(patternTraning, patternActual))
 // Creating a new OSBM object
 let myORGate = new OSBM;
 
-// Storing traning dataset in specific format
-let OR_gate_traningSet = [
+// Storing traning dataset in specific format with the ".train()" method
+myORGate.train([
   {
     dataSet: [[0, 0]],
     output: "Zero"
@@ -146,13 +148,13 @@ let OR_gate_traningSet = [
     dataSet: [[1, 0]],
     output: "One"
   }
-];
+]);
 
 // Storing actual dataset
 let OR_gate_actualSet = [[1,0]]
 
 // Output the result in the console
-console.log(myORGate.compare(OR_gate_traningSet,OR_gate_actualSet))
+console.log(myORGate.run(OR_gate_actualSet))
 // Returns wrtOption: Zero: 25% , One: 75% (Suggests that out of all the options(Zero & One), One matches the most.)
 // Returns wrtActual: Zero: 50% , One: 100% (Optionwise matching % with the actual input datasets)
 ```
@@ -165,8 +167,8 @@ console.log(myORGate.compare(OR_gate_traningSet,OR_gate_actualSet))
 // Creating a new OSBM object
 let colorDarkness = new OSBM;
 
-// Storing traning dataset in specific format
-let RGB_Traning = [
+// Storing traning dataset in specific format with the ".train()" method
+colorDarkness.train([
   {
     dataSet: [[255/255, 255/255, 255/255]],
     output: "Light"
@@ -183,13 +185,13 @@ let RGB_Traning = [
     dataSet: [[0, 0, 0]],
     output: "Dark"
   }
-];
+]) ;
 
 // Storing actual dataset
 let RGB_Actual = [[0, 0, 128/255]]
 
 // Output the result in the console
-console.log(colorDarkness.compare(RGB_Traning, RGB_Actual))
+console.log(colorDarkness.run(RGB_Actual))
 // Returns wrtOption: Light: 41% , Dark: 59% (Suggests that out of all the options(Light & Dark), Dark matches the most.)
 // Returns wrtActual: Light: 41% , Dark: 83% (Optionwise matching % with the actual input datasets)
 ```

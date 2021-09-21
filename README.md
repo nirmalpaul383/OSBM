@@ -128,7 +128,7 @@ console.log(myPatternRecognizer.run(patternActual))
 // Using it for creating a OR_Gate:
 
 // Creating a new OSBM object
-let myORGate = new OSBM;
+let myORGate = new OSBM();
 
 // Storing traning dataset in specific format with the ".train()" method
 myORGate.train([
@@ -165,7 +165,7 @@ console.log(myORGate.run(OR_gate_actualSet))
 // Using it for predicting the darkness of a color
 
 // Creating a new OSBM object
-let colorDarkness = new OSBM;
+let colorDarkness = new OSBM();
 
 // Storing traning dataset in specific format with the ".train()" method
 colorDarkness.train([

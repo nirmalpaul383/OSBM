@@ -13,6 +13,14 @@ My YouTube Page: https://www.youtube.com/channel/UCY6JY8bTlR7hZEvhy6Pldxg/
 // Class definition for OSBM(Option Selector based on the Best Matching)
 class OSBM {
 
+  // Function(Method) definition for storing training dataset to the memory property of the OSBM object
+  train(trainingDataSet) {
+
+    // Here "this" means OSBM class 's object
+    this.memory = trainingDataSet;
+
+  }
+
   // Function(Method) definition for testing whether two arrays are comparable or not
   isCompararableOrNot(traning, actual) {
 
@@ -71,7 +79,15 @@ class OSBM {
   };
 
   // Function(Method) for comparing actual data set with all available training dataset
-  compare(traning, actual) {
+  run(actual) {
+
+    // For storing OSBM 's memory to the "traning" variable
+    let traning = this.memory;
+
+    // If the value of traning variable is a falsy(e.g undefined) value then the function will not be executed any further and the user will be shown the related message.
+    if(!(traning)) {
+      return `To use OSBM, you must first provide a training dataset`
+    }
 
     // If the size of the training data set and the actual data set are different, the function will not be executed any further and the user will be shown the related message.
     // Here "this" means OSBM Class
@@ -189,6 +205,4 @@ class OSBM {
   };
 
 } ;
-
-
 

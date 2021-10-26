@@ -155,7 +155,7 @@ let OR_gate_actualSet = [[1,0]]
 
 // Output the result in the console
 console.log(myORGate.run(OR_gate_actualSet))
-// Returns wrtOption: Zero: 25% , One: 75% (Suggests that out of all the options(Zero & One), One matches the most.)
+// Returns wrtOption: Zero: 42.86% , One: 57.14% (Suggests that out of all the options(Zero & One), One matches the most.)
 // Returns wrtActual: Zero: 50% , One: 100% (Optionwise matching % with the actual input datasets)
 ```
 .......................................................................
@@ -192,7 +192,7 @@ let RGB_Actual = [[0, 0, 128/255]]
 
 // Output the result in the console
 console.log(colorDarkness.run(RGB_Actual))
-// Returns wrtOption: Light: 41% , Dark: 59% (Suggests that out of all the options(Light & Dark), Dark matches the most.)
+// Returns wrtOption: Light: 42.84% , Dark: 57.16% (Suggests that out of all the options(Light & Dark), Dark matches the most.)
 // Returns wrtActual: Light: 41% , Dark: 83% (Optionwise matching % with the actual input datasets)
 ```
 .................................................................................................................................................................................

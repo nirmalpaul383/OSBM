@@ -85,7 +85,7 @@ class OSBM {
     let traning = this.memory;
 
     // If the value of traning variable is a falsy(e.g undefined) value then the function will not be executed any further and the user will be shown the related message.
-    if(!(traning)) {
+    if (!(traning)) {
       return `To use OSBM, you must first provide a training dataset`
     }
 
@@ -111,6 +111,9 @@ class OSBM {
 
     // For storing all results: result_wrtOption , result_wrtActual
     let result = {};
+
+    // This value decides whether a further percentage calculation process will continue for wrtOption 's result or not.
+    let wrtOptionFurther = false;
 
 
     // For comparing each training data sets with the actual data set and storing the results(misMatchedValues) in misMatchValue array(in the comparing order respectivly)
@@ -183,16 +186,40 @@ class OSBM {
         temp1 = (complementryValue[index] / sumComplementery) * 100;
       }
 
-      // If there is any previous result in the head of the same label(Output/Option), then this new result will be added(+) to the old result.
+      // If there is any previous result in the head of the same label(Output/Option), then the max value will be recorded in that label(Output/Option) for further processing.
       // If result[temp] is truthy value only then this if condition will be satisfied(Note: undefined is a falsy value)
       if (result_wrtOption[temp]) {
-        result_wrtOption[temp] = result_wrtOption[temp] + temp1
+        result_wrtOption[temp] = Math.max(result_wrtOption[temp], temp1);
+
+        // If there is any previous result, only then this variable 's value will be true. This value decides whether a further percentage calculation process will continue for this result or not.        
+        wrtOptionFurther = true;
       }
       // Otherwise a new label(Output/Option) head will be created and the result will be kept in it
       else {
         result_wrtOption[temp] = temp1;
       }
     });
+
+
+    // If there are more than one option with the same name/output/label, only then further percentage will be calculated for wrtOption
+    // If wrtOptionFurther is truthy value only then this if condition will be satisfied(Note: undefined is a falsy value)
+    if (wrtOptionFurther) {
+
+      // For storing sum value of all element's value from wrtoption
+      let sumOfwrtOptionV = 0;
+
+      // For summing up all elements's value from wrtOption Object
+      for (let tempIndex in result_wrtOption) {
+        sumOfwrtOptionV += result_wrtOption[tempIndex];
+      };
+
+      // For calculating new(further) percentage value for each element of wrtOption and for setting(storing) all those value in each element.
+      for(let tempIndex1 in result_wrtOption) {
+
+        //  Here first "result_wrtOption[tempIndex1]" indicates for accessing wrtOption node (new value), where second "result_wrtOption[tempIndex1]" indicates the old value of this node
+        result_wrtOption[tempIndex1] = result_wrtOption[tempIndex1] / sumOfwrtOptionV * 100;
+      };
+    }
 
 
     // For storing all results: result_wrtOption , result_wrtActual into result object
@@ -204,5 +231,5 @@ class OSBM {
 
   };
 
-} ;
+};
 
